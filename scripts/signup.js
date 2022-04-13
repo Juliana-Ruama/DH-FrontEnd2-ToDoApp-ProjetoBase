@@ -6,6 +6,19 @@ const repetirSenha = document.getElementById("repetirSenha");
 
 const botao = document.getElementById("submit");
 
+const validateField = (field, valid) => {
+    if (valid) return field.classList.remove("is-invalid");
+    field.value.length <= 0 ? field.classList.add("is-invalid") : field.classList.remove("is-invalid");
+}
+
+const fields = [nome, apelido, email, senha, repetirSenha];
+
+fields.forEach(field => {
+
+    field.addEventListener('focus', () => validateField(field, true));
+    field.addEventListener('blur', () => validateField(field));
+})
+
 let usuarioCadastro = {
     firstName: "",
     lastName: "",
