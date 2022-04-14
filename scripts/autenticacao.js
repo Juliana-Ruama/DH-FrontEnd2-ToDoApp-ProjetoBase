@@ -27,6 +27,7 @@ const logarUsuario = function () {
     }).then(response => {
         localStorage.setItem('jwt', response.jwt)
         console.log(localStorage.getItem('jwt'))
+        location.href = "tarefas.html"
     }).catch(error => {
         console.log(error);
     });

@@ -6,6 +6,31 @@ const repetirSenha = document.getElementById("repetirSenha");
 
 const botao = document.getElementById("submit");
 
+const validateField = (field, valid) => {
+    if (valid) return field.classList.remove("is-invalid");
+    field.value.length <= 0 ? field.classList.add("is-invalid") : field.classList.remove("is-invalid");
+}
+
+const validateEmail = () => {
+    let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!emailRegex.test(email.value)) document.querySelector("#email + small").innerHTML = "Email inválido"
+}
+
+const fields = [nome, apelido, email, senha, repetirSenha];
+
+fields.forEach(field => {
+
+    field.addEventListener('focus', () => validateField(field, true));
+    field.addEventListener('blur', () => validateField(field));
+})
+
+email.addEventListener("blur", () => {
+    validateField(email, validateEmail());
+})
+email.addEventListener("focus", () => {
+    validateField(email, true);
+})
+
 let usuarioCadastro = {
     firstName: "",
     lastName: "",
