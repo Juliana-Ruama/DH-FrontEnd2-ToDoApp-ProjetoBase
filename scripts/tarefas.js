@@ -25,6 +25,8 @@ const tarefas = () => {
 
 if (!localStorage.getItem('jwt')) location.href = "index.html"
 
+const description = document.getElementById('novaTarea')
+
 let novaTarefa = () => {
     fetch("https://ctd-todo-api.herokuapp.com/v1/tasks", {
         method: "POST",
@@ -33,9 +35,8 @@ let novaTarefa = () => {
             "Authorization": localStorage.getItem('jwt')
         },
         body: JSON.stringify({
-            "title": "Nova tarefa",
-            "description": "Nova descrição",
-            "status": "PENDING"
+            "description": description | "descrição",
+            "status": false
         })
     }).then(response => {
         return response.json()

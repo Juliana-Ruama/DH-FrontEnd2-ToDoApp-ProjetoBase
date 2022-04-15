@@ -23,13 +23,21 @@ const logarUsuario = function () {
         body: usuarioJSON
 
     }).then(response => {
+        console.log(response)
+        switch(response.status) {
+            case 400: throw("Senha errada")
+            case 404: throw("Usuário não encontrado")
+            case 500: throw("Erro no servidor")
+        }
         return response.json()
     }).then(response => {
+        console.log(response)
         localStorage.setItem('jwt', response.jwt)
         console.log(localStorage.getItem('jwt'))
         location.href = "tarefas.html"
     }).catch(error => {
         console.log(error);
+        alert(error)
     });
 }
 
