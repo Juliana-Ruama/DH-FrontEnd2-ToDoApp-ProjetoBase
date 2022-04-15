@@ -23,7 +23,7 @@ const tarefas = () => {
     })
 }
 
-
+if (!localStorage.getItem('jwt')) location.href = "index.html"
 
 let novaTarefa = () => {
     fetch("https://ctd-todo-api.herokuapp.com/v1/tasks", {
