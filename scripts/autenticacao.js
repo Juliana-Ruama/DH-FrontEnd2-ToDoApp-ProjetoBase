@@ -1,5 +1,6 @@
 const email = document.getElementById("inputEmail");
 const senha = document.getElementById("inputPassword");
+
 const botao = document.getElementById("submit");
 
 let usuarioLogin = {

@@ -3,17 +3,18 @@ let tarefasPendentesUL = document.querySelector('.tarefas-pendentes');
 let tarefasConcluidasUL = document.querySelector('.tarefas-terminadas');
 
 
-
 const renderizaTarefaNaoConcluida = (tarefa) => {
     let tarefaPendenteLI = document.createElement('li')
     tarefaPendenteLI.classList.add('tarefa')
+
+    testeSplit = tarefa.createdAt.split(".")
 
     tarefaPendenteLI.innerHTML = 
     `
     <div class="not-done" id="${tarefa.id}"></div>
     <div class="descricao">
         <p class="nome">${tarefa.description}</p>
-        <p class="timestamp"><i class="far fa-calendar-alt"></i> ${tarefa.createdAt}</p>
+        <p class="timestamp"><i class="far fa-calendar-alt"></i> ${testeSplit[0].replace("T"," >> ")}</p>
     </div>
     `
 

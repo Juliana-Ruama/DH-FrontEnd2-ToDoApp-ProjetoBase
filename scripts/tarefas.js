@@ -34,10 +34,11 @@ let novaTarefa = () => {
             "Content-Type": "application/json",
             "Authorization": localStorage.getItem('jwt')
         },
-        body: JSON.stringify({
-            "description": description | "descrição",
-            "status": false
-        })
+        body: JSON.stringify(
+            {"description": description.value, //adicionei .value
+            "completed": false //e aqui coloquei igual tava na documentação, aparentemente deu certo
+            }
+        )
     }).then(response => {
         return response.json()
     }).then(response => {
@@ -46,15 +47,13 @@ let novaTarefa = () => {
     
 }
 
-onload = tarefas();
-
-
 let button = document.getElementById("novaTarefa")
 button.addEventListener("click", (event) => {
     event.preventDefault()
     novaTarefa()
 })
 
+onload = tarefas();
 
 
 

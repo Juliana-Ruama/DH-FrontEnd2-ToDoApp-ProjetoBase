@@ -1,5 +1,6 @@
 @import url('./common.css');
 
+
 body{
   display: flex;
 }
@@ -17,10 +18,11 @@ form {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 2em auto;
-  box-shadow: 0 5px 5px lightgrey;
+  margin: 3em auto;
+  box-shadow: 0 5px 5px rgba(163, 161, 161, 0.733);
   padding: 1em 2.5em;
   box-sizing: border-box;
+  border-radius: 5px;
 }
 
 form:after {
@@ -37,14 +39,14 @@ form:after {
 input {
   width: 100%;
   padding: .4em .5em;
-  background-color: var(--app-grey);
+  background-color: rgba(203, 203, 247, 0.288);
   border: 1px solid var(--app-grey);
-  border-radius: .2em;
+  border-radius: .5em;
 }
 
 input:focus {
   outline: none;
-  border: 1px solid lightgrey;
+  border: 1px solid rgb(235, 226, 226);
 }
 
 label {
@@ -57,7 +59,8 @@ label {
 
 button {
   padding: .5em 3em;
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
+  background: linear-gradient(var(--primary), var(--secondary));
   color: white;
   margin-top: 2em;
   font-weight: 400;
@@ -67,12 +70,13 @@ button {
 .form-header {
   color: grey;
   font-size: 2em;
+  font-weight: bold;
 }
 .ingressar{
   text-align: center;
 }
 .left{
-  width: 50%;  
+  width: 45%;  
   background-color: white;
   text-align: center;
   display: flex;
@@ -80,7 +84,7 @@ button {
   justify-content: center;
 }
 .left img{
-  width:60%;
+  width:65%;
 }
 .right{
   width: 50%;

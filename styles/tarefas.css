@@ -29,11 +29,19 @@ a {
 
 .user-info .user-image {
   height: 2em;
-  width: 2em;
+  width: 2.1em;
   border-radius: 50%;
   background-color: white;
   opacity: .4;
   margin-left: .7em;
+}
+
+.rosto{
+  height: 2em;
+  width: 2.1em;
+  border-radius: 50%;
+  background-color: white;
+  opacity: .4;
 }
 
 #closeApp{

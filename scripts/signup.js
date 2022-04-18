@@ -6,6 +6,7 @@ const repetirSenha = document.getElementById("repetirSenha");
 
 const botao = document.getElementById("submit");
 
+// -*-
 const validateField = (field, valid) => {
     if (valid) return field.classList.remove("is-invalid");
     field.value.length <= 0 ? field.classList.add("is-invalid") : field.classList.remove("is-invalid");
@@ -57,9 +58,10 @@ const criarUsuario = () => {
     }).then(response => {
         return response.json()
     }).then(response => {
-        localStorage.setItem('jwt', response.jwt)
-        console.log(localStorage.getItem('jwt'))
+        sessionStorage.setItem('jwt', response.jwt)
+        console.log(sessionStorage.getItem('jwt'))
         alert("Usuário cadastrado com sucesso!")
+// *Voltar a página de login
         location.href = "tarefas.html"
     }).catch(error => {
         console.log(error);
