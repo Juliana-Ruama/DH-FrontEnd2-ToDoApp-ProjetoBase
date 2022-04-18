@@ -43,6 +43,7 @@ let novaTarefa = () => {
         return response.json()
     }).then(response => {
         console.log(response)
+        location.reload()
     })
     
 }
@@ -51,6 +52,8 @@ let button = document.getElementById("novaTarefa")
 button.addEventListener("click", (event) => {
     event.preventDefault()
     novaTarefa()
+    
+        
 })
 
 onload = tarefas();
