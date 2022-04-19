@@ -49,6 +49,7 @@ const criarUsuario = () => {
 
     let usuarioCadastroJSON = JSON.stringify(usuarioCadastro);
 
+    showSpinner()
     fetch("https://ctd-todo-api.herokuapp.com/v1/users", {
         method: "POST",
         headers: {
@@ -56,16 +57,21 @@ const criarUsuario = () => {
         },
         body: usuarioCadastroJSON
     }).then(response => {
+        console.log(response.status)
+        switch (response.status) {
+            case 400: throw "Usuário já existe"
+            case 500: throw "Erro de servidor"
+        }
         return response.json()
     }).then(response => {
         sessionStorage.setItem('jwt', response.jwt)
         console.log(sessionStorage.getItem('jwt'))
         alert("Usuário cadastrado com sucesso!")
-// *Voltar a página de login
+        // *Voltar a página de login
         location.href = "tarefas.html"
     }).catch(error => {
-        console.log(error);
-    });
+        alert(error);
+    }).finally(() => { hideSpinner() })
 }
 
 botao.addEventListener("click", function (event) {

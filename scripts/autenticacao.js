@@ -16,6 +16,7 @@ const logarUsuario = function () {
 
     let usuarioJSON = JSON.stringify(usuarioLogin);
 
+    showSpinner()
     fetch("https://ctd-todo-api.herokuapp.com/v1/users/login", {
         method: "POST",
         headers: {
@@ -37,9 +38,9 @@ const logarUsuario = function () {
         console.log(localStorage.getItem('jwt'))
         location.href = "tarefas.html"
     }).catch(error => {
-        console.log(error);
+        console.log(error)
         alert(error)
-    });
+    }).finally(() => { hideSpinner() })
 }
 
 botao.addEventListener("click", function (event) {
