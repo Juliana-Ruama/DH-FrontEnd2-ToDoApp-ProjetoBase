@@ -27,8 +27,8 @@ const logarUsuario = function () {
     }).then(response => {
         console.log(response)
         switch(response.status) {
-            case 400: throw("Senha errada")
-            case 404: throw("Usuário não encontrado")
+            case 400: throw("Email e/ou senha incorreto")
+            case 404: throw("Email e/ou senha incorreto")
             case 500: throw("Erro no servidor")
         }
         return response.json()

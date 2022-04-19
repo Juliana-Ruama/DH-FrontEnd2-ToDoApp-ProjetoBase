@@ -248,6 +248,12 @@ a {
   text-decoration: line-through;
 }
 
+label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 #skeleton .descricao{
   background-color: rgb(189, 189, 189);
 }
