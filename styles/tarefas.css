@@ -10,10 +10,22 @@ header {
 a {
   display: block;
   width: fit-content;
-  padding: .7em 1em;
+  margin-top: 35px;
+  padding: .3em 1em;
   border-bottom: .2em solid white;
   text-decoration: none;
-  color: white
+  color: white;
+  border-radius: 2px;
+}
+
+.main-title{
+  font-size: 1.1em;
+  padding: .5em 0;
+  margin-left: 400px;
+
+  font-weight: bold;
+  color: white;
+
 }
 
 .user-info {
@@ -107,7 +119,7 @@ a {
   width: 100%;
 }
 
-.not-done {
+.not-done{
   width: 2em;
   height: 2em;
   background-color: var(--app-grey);
@@ -116,6 +128,10 @@ a {
   cursor: pointer;
   text-align: center;
   color: grey;
+}
+
+.not-done:hover{
+  background-image: url("icon.png");
 }
 
 /* Lista de tarefas ----------------------------------------------------------- */

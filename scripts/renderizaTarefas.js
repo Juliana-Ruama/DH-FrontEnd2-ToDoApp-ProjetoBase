@@ -4,18 +4,22 @@ let tarefasConcluidasUL = document.querySelector('.tarefas-terminadas');
 const renderizaTarefaNaoConcluida = (tarefa) => {
     let tarefaPendenteLI = document.createElement('li');
     tarefaPendenteLI.classList.add('tarefa');
+    
 
-    testeSplit = tarefa.createdAt.split(".");
+    let taskSplitPendente = tarefa.createdAt.split("T");
+
+    let dataAmericana = taskSplitPendente[0];
+    let dataBrasileira = dataAmericana.split("-").reverse().join('/');
 
     tarefaPendenteLI.innerHTML =
     `
     <div class="not-done" id="${tarefa.id}" onclick="marcaCompleto(${tarefa.id})"></div>
     <div class="descricao">
         <p class="nome">${tarefa.description}</p>
-        <p class="timestamp"><i class="far fa-calendar-alt"></i> ${testeSplit[0].replace("T", " >> ")}</p>
-        <div>
-            <button><i id="${tarefa.id}" class="far fa-trash-alt" onclick="deletaTarefa(${tarefa.id})"></i></button>
-        </div>
+    <label>
+        <p class="timestamp"><i class="far fa-calendar-alt"></i> ${dataBrasileira}</p>
+        <button><i id="${tarefa.id}" class="far fa-trash-alt" onclick="deletaTarefa(${tarefa.id})"></i></button>
+    </label>
     </div>
     `
     tarefasPendentesUL.appendChild(tarefaPendenteLI);
