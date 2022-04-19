@@ -1,24 +1,24 @@
-
 let tarefasPendentesUL = document.querySelector('.tarefas-pendentes');
 let tarefasConcluidasUL = document.querySelector('.tarefas-terminadas');
 
-
 const renderizaTarefaNaoConcluida = (tarefa) => {
-    let tarefaPendenteLI = document.createElement('li')
-    tarefaPendenteLI.classList.add('tarefa')
+    let tarefaPendenteLI = document.createElement('li');
+    tarefaPendenteLI.classList.add('tarefa');
 
-    testeSplit = tarefa.createdAt.split(".")
+    testeSplit = tarefa.createdAt.split(".");
 
-    tarefaPendenteLI.innerHTML = 
+    tarefaPendenteLI.innerHTML =
     `
-    <div class="not-done" id="${tarefa.id}"></div>
+    <div class="not-done" id="${tarefa.id}" onclick="marcaCompleto(${tarefa.id})"></div>
     <div class="descricao">
         <p class="nome">${tarefa.description}</p>
-        <p class="timestamp"><i class="far fa-calendar-alt"></i> ${testeSplit[0].replace("T"," >> ")}</p>
+        <p class="timestamp"><i class="far fa-calendar-alt"></i> ${testeSplit[0].replace("T", " >> ")}</p>
+        <div>
+            <button><i id="${tarefa.id}" class="far fa-trash-alt" onclick="deletaTarefa(${tarefa.id})"></i></button>
+        </div>
     </div>
     `
-
-    tarefasPendentesUL.appendChild(tarefaPendenteLI)
+    tarefasPendentesUL.appendChild(tarefaPendenteLI);
 }
 
 const renderizaTarefaConcluida = (tarefa) => {
@@ -31,12 +31,11 @@ const renderizaTarefaConcluida = (tarefa) => {
     <div class="descricao">
     <p class="nome">${tarefa.description}</p>
     <div>
-        <button><i id="${tarefa.id}" class="fas fa-undo-alt change"></i></button>
-        <button><i id="${tarefa.id}" class="far fa-trash-alt"></i></button>
+        <button onclick="marcaImcompleto(${tarefa.id})"><i id="${tarefa.id}" class="fas fa-undo-alt change"></i></button>
+        <button><i id="${tarefa.id}" class="far fa-trash-alt" onclick="deletaTarefa(${tarefa.id})"></i></button>
     </div>
     </div>
     `
 
     tarefasConcluidasUL.appendChild(tarefaConcluidaLI);
 }
-

@@ -16,7 +16,7 @@ const logarUsuario = function () {
 
     let usuarioJSON = JSON.stringify(usuarioLogin);
 
-    showSpinner()
+    showSpinner();
     fetch("https://ctd-todo-api.herokuapp.com/v1/users/login", {
         method: "POST",
         headers: {
@@ -33,14 +33,14 @@ const logarUsuario = function () {
         }
         return response.json()
     }).then(response => {
-        console.log(response)
-        localStorage.setItem('jwt', response.jwt)
-        console.log(localStorage.getItem('jwt'))
-        location.href = "tarefas.html"
+        console.log(response);
+        localStorage.setItem('jwt', response.jwt);
+        console.log(localStorage.getItem('jwt'));
+        location.href = "tarefas.html";
     }).catch(error => {
-        console.log(error)
-        alert(error)
-    }).finally(() => { hideSpinner() })
+        console.log(error);
+        alert(error);
+    }).finally(() => { hideSpinner() });
 }
 
 botao.addEventListener("click", function (event) {
@@ -54,12 +54,12 @@ botao.addEventListener("click", function (event) {
         arrayErros.push('Senha é obrigatório');
     }
     if (arrayErros.length > 0) {
-        let stringErros = ''
+        let stringErros = '';
         arrayErros.forEach(erro => {
-            stringErros = stringErros + erro + '\n'
+            stringErros = stringErros + erro + '\n';
         });
         alert(stringErros);
     } else {
         logarUsuario();
     }
-})
+});
